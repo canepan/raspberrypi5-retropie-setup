@@ -37,13 +37,13 @@ that RetroPie can compile and install software correctly:
 4. It seems that the raspi-config tool has an issue currently setting all the locale settings, as seen when exiting
    the tool. Specifically the LANGUAGE and LC_ALL locale settings are unset.
    ![Errors from raspi-config when setting locale](./screenshots/configure_os/os_raspi-config_localization_error.png)
-    1. The `locale` command shows the _current_ settings, but changes made to locale do not take affect until after the
-       system is restarted. So we need to use `sudo reboot` to restart the system
+    1. The `locale` command shows the _current_ settings, but changes made to locale do not take affect until you login.
+       So we need to use logoff and kogin again (or reboot)
        ![locale showing old settings before reboot](./screenshots/configure_os/os_locale_01.png)
-    2. Then we can use `locale` to show current settings, and we can see that LANGUAGE and LC_ALL are still unset
+    3. Then we can use `locale` to show current settings, and we can see that LANGUAGE and LC_ALL are still unset
        ![locale showing new settings after reboot](./screenshots/configure_os/os_locale_02.png)
-    3. Use the following commands to update both settings:
+    4. Use the following commands to update both settings:
         1. `sudo update-locale LANGUAGE="en_US:en"`
         2. `sudo update-locale LC_ALL=en_US.UTF-8`
-    4. Use `sudo reboot` to reboot the system and then use `locale` to confirm all the locale settings are configured
+    5. Use exit to logoff and then use `locale` to confirm all the locale settings are configured
        ![locale showing all settings correct](./screenshots/configure_os/os_locale_03.png)
